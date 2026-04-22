@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hostel Management</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Background */
+header {
+    background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2') no-repeat center/cover;
+    height: 300px;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+/* Navbar */
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+}
+
+/* Form */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cards */
+.card {
+    background: #f4f4f4;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to Hostel Portal</h1>
+    <p>Your Home Away From Home</p>
+</header>
+
+<nav>
+    <a href="#login">Login</a>
+    <a href="#fees">Fees</a>
+    <a href="#leave">Leave Form</a>
+    <a href="#location">Location</a>
+</nav>
+
+<!-- Login -->
+<section id="login">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+</section>
+
+<!-- Fees -->
+<section id="fees">
+    <h2>Hostel Fee Details</h2>
+    <div class="card">
+        <p>Room Rent: ₹5000/month</p>
+        <p>Food Charges: ₹3000/month</p>
+        <p>Maintenance: ₹1000/month</p>
+        <strong>Total: ₹9000/month</strong>
+    </div>
+</section>
+
+<!-- Leave Form -->
+<section id="leave">
+    <h2>Leave Application</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="date" id="fromDate">
+    <input type="date" id="toDate">
+    <textarea id="reason" placeholder="Reason"></textarea>
+    <button onclick="applyLeave()">Submit</button>
+    <p id="leaveMsg"></p>
+</section>
+
+<!-- Location -->
+<section id="location">
+    <h2>Hostel Location</h2>
+    <iframe 
+        src="https://www.google.com/maps?q=Hyderabad&output=embed"
+        width="100%" height="300" style="border:0;">
+    </iframe>
+</section>
+
+<script>
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234") {
+        document.getElementById("loginMsg").innerHTML = "Login Successful!";
+    } else {
+        document.getElementById("loginMsg").innerHTML = "Invalid Credentials";
+    }
+}
+
+function applyLeave() {
+    let name = document.getElementById("name").value;
+    let from = document.getElementById("fromDate").value;
+    let to = document.getElementById("toDate").value;
+
+    if(name && from && to) {
+        document.getElementById("leaveMsg").innerHTML = "Leave Applied Successfully!";
+    } else {
+        document.getElementById("leaveMsg").innerHTML = "Please fill all fields.";
+    }
+}
+</script>
+
+</body>
+</html>
